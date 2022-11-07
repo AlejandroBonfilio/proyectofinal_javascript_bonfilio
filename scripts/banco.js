@@ -1,10 +1,5 @@
-//Ingreso de usuario y bienvenida
-let nombre = prompt("Ingrese nombre de Usuario")
-alert("Hola " + nombre + " bienvenido a Bancos Canarias!")
-
-//saldo inicial cuenta bancaria
-let saldopesosarg = 60000;
-let saldodolares = 0;
+//array de cuentas
+const cuentas = [];
 
 //funcion plazo fijo
 
@@ -22,22 +17,33 @@ function calculoPrestamo (CFTMens,meses,CFTEAV){
     alert(respuesta);
 }
 
+//variables
+let indiceCuenta;
+
+
 //Menu 
 let opcion = 6;
 do{
-    opcion=parseInt(prompt("¿Que operacion desea realizar el dia de hoy "+ nombre +"? (ingrese solo numero) \n1.Ver Saldo \n2.Constituir un plazo fijo \n3.Comprar moneda extranjera \n4.Créditos \n5.Depositar \n6.Salir"))
+    opcion=parseInt(prompt("¿Que operacion desea realizar el dia de hoy ? (ingrese solo numero) \n1.Ver Saldo \n2.Constituir un plazo fijo \n3.Comprar moneda extranjera \n4.Créditos \n5.Depositar \n6.Crear cuenta \n7.salir \n8.seleccionar cuenta  "))
     switch (opcion){
             //ver saldo Opcion 1 
             case 1:
-                alert("Este es tu saldo en Pesos Arg $ " + saldopesosarg + " y en Dolares u$d " + saldodolares )
+                if (cuentas.length != 0){
+                    alert("Este es tu saldo en Pesos Arg $" + cuentas[indiceCuenta].saldopesosarg + "y en Dolares u$d " +cuentas[indiceCuenta].saldodolares )
+                
+                }
+                else{
+                    alert("debes crear una cuenta primero")
+                }    
             break;
             //simular plazo fijo opcion 2
             case 2:
+                if (cuentas.length != 0){
                 let montoplazofijo = parseInt(prompt("Para simular un plazo fijo en pesos, ingrese un monto disponible en su cuenta: "))
-                    if (montoplazofijo > saldopesosarg){
+                    if (montoplazofijo > cuentas[indiceCuenta].saldopesosarg){
                         alert("Lo sentimos pero no tiene suficiente dinero")
                     }
-                    else if(montoplazofijo <= saldopesosarg && montoplazofijo > 0) {
+                    else if(montoplazofijo <= cuentas[indiceCuenta].saldopesosarg && montoplazofijo > 0) {
                         let diasplazo = parseInt(prompt("Plazos disponibles en dias 30/60/90/120 , pulse 5 para salir"))
                         switch (diasplazo){
                             case 30:
@@ -62,11 +68,16 @@ do{
                     }
                     else{
                         alert("El valor ingresado no es correcto")
+                    }    
+                }
+                    else{
+                        alert("Debe crear una cuenta primero")
                     }                 
             break;
             //comprar-vender dolares opcion 3
             case 3:
                 //menu
+            if (cuentas.length != 0){
                 let opciondolares = 1;
                 opciondolares=parseInt(prompt("Ingrese opcion:\n1.Comprar \n2.Vender \nValores: Compra $300 Venta $280" ))
                 let compra = 300; 
@@ -75,31 +86,32 @@ do{
                 if ( opciondolares == 1){
                     importe=parseInt(prompt("Ingrese valor en U$D que quiere comprar: "))
                     comprardolar = importe * compra  
-                    if(comprardolar > saldopesosarg ){
+                    if(comprardolar > cuentas[indiceCuenta].saldopesosarg ){
                         alert("Lo sentimos pero no tiene suficiente dinero")
                     }
-                    else if(comprardolar <= saldopesosarg && comprardolar > 0){
+                    else if(comprardolar <= cuentas[indiceCuenta].saldopesosarg && comprardolar > 0){
                         alert("Usted quiere comprar U$D " + importe + " por: $" + comprardolar)
-                        saldodolares = saldodolares + importe
-                        saldopesosarg = saldopesosarg - comprardolar
+                        cuentas[indiceCuenta].saldodolares = cuentas[indiceCuenta].saldodolares + importe;
+                        cuentas[indiceCuenta].saldopesosarg = cuentas[indiceCuenta].saldopesosarg - comprardolar;
                         alert("Usted compró: U$D " + importe)
                     }
                     else{
                         alert("El valor ingresado no es correcto")
                     }
-
                 }
+                
+              
                 //venta
                 else if (opciondolares==2){
                     importe=parseInt(prompt("Ingrese valor en U$D que quiere vender: "))
                     venderdolar = importe * venta  
-                    if(importe > saldodolares ){
+                    if(importe > cuentas[indiceCuenta].saldodolares ){
                         alert("Lo sentimos pero no tiene suficiente dinero")
                     }
-                    else if(importe <= saldodolares && importe > 0){
+                    else if(importe <= cuentas[indiceCuenta].saldodolares && importe > 0){
                         alert("Usted quiere vender: U$D" + importe + " por: $" + venderdolar)
-                        saldodolares = saldodolares - importe
-                        saldopesosarg = saldopesosarg + venderdolar
+                        cuentas[indiceCuenta].saldodolares = cuentas[indiceCuenta].saldodolares - importe
+                        cuentas[indiceCuenta].saldopesosarg = cuentas[indiceCuenta].saldopesosarg + venderdolar
                         alert("Usted vendió: U$D " + importe)
                     }
                     else{
@@ -109,9 +121,15 @@ do{
                 else{
                     alert("Opcion Inválida")
                 }
+            }
+            else{
+                alert("Debe crear una cuenta primero")
+            }
             break;
             //pedir un credito opcion 4
+            
             case 4:
+            if (cuentas.length != 0){    
                 alert("Bienvenido al sistema de préstamos Canarias \nPuede pedir un maximo de $2.000.000 en un plazo de hasta 72 meses!")
                 prestamo=parseInt(prompt("Ingrese monto a solicitar: "))
                 if(prestamo > 2000000){
@@ -143,23 +161,59 @@ do{
                 else{
                     alert("El valor ingresado es incorrecto")
                 }
+            }
+            else{
+                alert("Debe crear una cuenta primero")
+            }
             break;
+            
             //deposito opcion 5
             case 5:
+            if (cuentas.length != 0){    
                 let massaldo = parseInt(prompt("Ingrese dinero:"))
                 saldopesosarg = saldopesosarg + massaldo
                 alert("su nuevo saldo es : " + saldopesosarg)
+            }
+            else{
+                alert("Debe crear una cuenta primero")
+            }
             break;
-            //salir opcion 6
+            
+            //sesiones
             case 6:
+                let nombre = prompt("ingrese su nombre");
+                let mail = prompt("ingrese su mail");
+                let saldopesosarg = parseInt(prompt("Deposito en pesos"));
+                let saldodolares = parseInt(prompt("Deposito en dolares"));
+                cuenta = new CuentaBancaria(nombre, mail, saldopesosarg, saldodolares);
+                cuentas.push(cuenta);
+                indiceCuenta = cuentas.length - 1;    
+            break;
+            
+            //salir opcion 6
+            case 7:
                 alert("Gracias, hasta pronto")
+            
+            //seleccionar cuenta 
+            case 8:
+                if (cuentas.length != 0) {
+                    let nombre = prompt("Ingrese un nombre a buscar");
+                    let cuenta = cuentas.find(
+                        (elemento) => elemento.nombre == nombre
+                    );
+                    indiceCuenta = cuentas.indexOf(cuenta);
+                } else {
+                    alert("No hay ninguna cuenta agregada");
+                }
+                break;
+
             //opcion incorrecta
             default:
                 alert("La opcion ingresada es incorrecta")
             break;
             }     
 }
-while(opcion!=6) 
+while(opcion!=7) 
 
 
 

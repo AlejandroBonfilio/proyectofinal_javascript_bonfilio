@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco Canarias</title>
+    
+    <meta name="viewport" content="initial-scale=1">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     
     <link rel="stylesheet" href="css/style.css">
     
@@ -13,10 +16,165 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header class="bg-dark navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <h1 id="h1" class="pt-2 ps-2">Banco Canarias</h1>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="formulario-completo">
+            <div >
+                <h2 class="titulo_formulario" id="bienvenida">Bienvenido a nuestro Home Banking</h2>  
+            </div>
+            <form class="formulario" method="post">
+                <div class="datos">    
+                    <h3>Inicie Sesion</h3>
+                    <div class="nombre">
+                        <label for="name">Nombre:</label>
+                        <input id="name" placeholder="Nombre" name="name" size="25">
+                    </div>    
+                    <div class="email">
+                        <label for="email">EMail:</label>
+                        <input type="email" id="email" placeholder="Email" name="email" size="25">
+                    </div>
+                </div>    
+                <div>
+                    <input class="formulario__boton" type="submit" name="enviar" id="enviar" value="Ingresar">
+                </div>
+            </form>
+        </section> 
+        <section class="formulario" >
+            <input class="formulario__boton" type="submit" name="saldo" id="saldo" value="VER SALDO">
+            <div id="saldototal">
+                <p id="versaldo"></p>
+                <p id="versaldodolares"></p>
+            </div>
+        </section> 
+        <section class="formulario" id="plazofijo">
+            <h3>Simular plazo fijo</h3>
+            <h6>Elegir plazo (en dias)</h6>
+            <p>Plazos disponibles 30-60-90-120</p>
+            <form method="post">
+                
+                <input type="number" id="diasPF">
+                
+                <h6>Ingresar monto</h6>
+                <input type="number" id="valorplazofijo">
+                <input class="formulario__boton" type="submit" id="botonsimularplazofijo" value="Simular">
+                <p id="resultadoplazofijo"></p>
+                <p id="errorplazofijo"></p>
+            </form>
+        </section>
+        <section class="formulario" id="dolares">
+            <h3>Comprar-Vender Dolares</h3>
+            <h4>Valor de Compra $300</h4>
+            <form method="post">    
+                <label for="comprarusd">Cuantos U$d quiere comprar?</label>
+                <input type="number" id="comprarusd">
+                <input class="formulario__boton" type="submit" id="botoncomprarusd" value="Comprar">
+                <p id="resultadodecomprausd"></p>
+            </form>
+            <h4>Valor de Venta $280</h4>
+            <form method="post">    
+                <label for="venderusd">Cuantos U$d quiere vender?</label>
+                <input type="number" id="venderusd">
+                <input class="formulario__boton" type="submit" id="botonvenderusd" value="Comprar">
+                <p id="resultadodeventausd"></p>
+            </form>
+        </section>
+        <section class="formulario" id="credito">
+            <h3>Pedir un Crédito</h3>
+            <h6>Puede pedir hasta $2.000.000 en un plazo maximo de 72 meses</h6>
+        
+            <label for="montoprestamo">Monto a solicitar</label>
+            <input type="number" id="montoprestamo"> 
+            <label for="plazoprestamo">Plazos disponibles 12-24-36-72</label>
+            <input type="number" id="plazoprestamo"> 
+            <input id="botonsimularprestamo" class="formulario__boton" type="submit" value="Simular">
+            <p id="resultadoprestamo"></p>
+            <p id="errorprestamo"></p> 
+        </section>
+        <section class="formulario" id="deposito">
+            <form method="post">  
+                <input class="formulario__boton" type="submit" name="botondeposito" id="botondeposito" value="DEPOSITAR PESOS">
+                <input type="number" id="depositarpesos" placeholder="Indique monto">
+            </form> 
+            <form method="post">  
+                <input class="formulario__boton" type="submit" name="botondepositodolares" id="botondepositodolares" value="DEPOSITAR DOLARES">
+                <input type="number" id="depositardolares" placeholder="Indique monto">
+            </form>         
+        </section>  
+        <section class="formulario" id="deposito">
+            <h3>Cambiar de cuenta</h3>
+            <form method="post">
+                <input class="formulario__boton" type="submit" name="botondebuscarcuenta" id="botondebuscarcuenta" value="CAMBIAR">
+                <input type="text" id="nombredecuenta" placeholder="nombre">
+                <input type="email" id="maildecuenta" placeholder="mail">
+            </form>
+        </section>    
+    </main>
+    <footer class="bg-dark text-center text-white">
+        <div class="container p-4">
+            <section class="mb-4">
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com/" role="button" target="_blank">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.spotify.com/" role="button" target="_blank">
+                    <i class="bi bi-spotify"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.twitch.tv/" role="button" target="_blank">
+                    <i class="bi bi-twitch"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/alejandrobonfilio/" role="button" target="_blank">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/alejandro-ezequiel-bonfilio-391810122" role="button" target="_blank">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/AlejandroBonfilio/rincon_del_gamer_bootstrap.git" role="button" target="_blank">
+                    <i class="bi bi-github"></i>
+                </a>
+            </section>
+            <section>
+                <form>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-auto">
+                            <p class="pt-2">
+                                <strong>Suscribite a nuestro newsletter</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-5 col-12">
+                            <div class="form-outline form-white mb-4">
+                                <input type="email" id="form5Example2" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-light mb-4">
+                                Enviar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <a href="#h1">
+                <i class="bi bi-arrow-up flecha-subir"></i>
+            </a>
+            <a href="https://wa.me" target="_blank">
+                <img class="logo_wsp" src="./imagenes/logo-wasap.png" alt="wpp">
+            </a>
+            <div class="text-center">
+                Ejercicio 2022 CODERHOUSE JAVASCRIPT
+            </div>
+        </div>    
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripts/personas.js"></script>
     <script src="scripts/banco.js"></script>
-    
+    <script src="scripts/plazofijo.js"></script>
+    <script src="scripts/prestamo.js"></script>
+    <script src="scripts/compraventausd.js"></script>
 </body>
 </html>

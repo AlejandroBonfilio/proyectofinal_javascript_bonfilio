@@ -1,0 +1,134 @@
+h1 {
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: white;
+}
+
+
+/* Logo wpp */
+.logo_wsp {
+  width: 70px;
+  position: fixed;
+  bottom: 25px;
+  right: 1vw;
+  /* animacion de wpp */
+  animation: logo_wsp 1.5s ease-in-out infinite both;
+}
+
+@keyframes logo_wsp {
+  from {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+.flecha-subir {
+  width: 70px;
+  position: fixed;
+  bottom: 100px;
+  right: 1vw;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.flecha-subir:hover {
+  background-color: white;
+  color: black;
+}
+
+.formulario {
+  width: 350px;
+  text-align: center;
+  padding: 30px;
+  margin: 20px;
+  border: 2px solid white;
+  align-self: center;
+  background-color: black;
+}
+
+.titulo_formulario {
+  margin: 20px;
+  padding: 20px;
+  background-color: black;
+  text-align: center;
+  border-radius: 20px;
+}
+
+body {
+  /* Fuente */
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+body a {
+  text-decoration: none;
+}
+
+body {
+  /* fondo */
+  background: linear-gradient(180deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 49%, rgb(0, 212, 255) 94%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.formulario__boton {
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin: 15px;
+  /* animacion de boton agregar carrito */
+}
+.formulario__boton:hover {
+  transition-delay: 0.5ms;
+  background-color: white;
+  color: black;
+}
+
+.formulario-completo {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* background-image: url("../imagenes/carrusel4.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nombre {
+  width: 50px;
+  margin: 0px 10px 10px 10px;
+}
+
+.email {
+  width: 50px;
+  margin: 10px 10px 0px 10px;
+}
+
+
+
+
+

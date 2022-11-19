@@ -65,7 +65,19 @@
         </div>
     </section>
     <main  class="main">
-       
+        <section class="formulario" id="deposito">
+            <h3>Deposito</h3>
+            <form method="post">  
+                <input class="formulario__boton" type="submit" name="botondeposito" id="botondeposito" value="DEPOSITAR PESOS" >
+                <input type="number" id="depositarpesos" placeholder="Indique monto" step="any">
+                <p id="textopesosdep"></p>
+            </form> 
+            <form method="post">  
+                <input class="formulario__boton" type="submit" name="botondepositodolares" id="botondepositodolares" value="DEPOSITAR DOLARES" >
+                <input type="number" id="depositardolares" placeholder="Indique monto" step="any">
+                <p id="textodolardep"></p>
+            </form>         
+        </section>  
         <section class="formulario" >
             <h3>Ver Saldo</h3>
             <input class="formulario__boton" type="submit" name="saldo" id="saldo" value="VER SALDO">
@@ -107,30 +119,18 @@
             </form>
         </section>
         <section class="formulario" id="credito">
-            <h3>Pedir un Crédito</h3>
+            <h3>Simular un Crédito</h3>
             <h6>Puede pedir hasta $2.000.000 en un plazo maximo de 72 meses</h6>
         
             <label for="montoprestamo">Monto a solicitar</label>
             <input type="number" id="montoprestamo" placeholder="Indique monto"> 
-            <label for="plazoprestamo">Plazos disponibles 12-24-36-72</label>
+            <label for="plazoprestamo">Plazos disponibles (en meses) 12-24-36-72</label>
             <input type="number" id="plazoprestamo" placeholder="Indique Plazo"> 
             <input id="botonsimularprestamo" class="formulario__boton" type="submit" value="Simular">
             <p id="resultadoprestamo"></p>
             
         </section>
-        <section class="formulario" id="deposito">
-            <h3>Deposito</h3>
-            <form method="post">  
-                <input class="formulario__boton" type="submit" name="botondeposito" id="botondeposito" value="DEPOSITAR PESOS" >
-                <input type="number" id="depositarpesos" placeholder="Indique monto" step="any">
-                <p id="textopesosdep"></p>
-            </form> 
-            <form method="post">  
-                <input class="formulario__boton" type="submit" name="botondepositodolares" id="botondepositodolares" value="DEPOSITAR DOLARES" >
-                <input type="number" id="depositardolares" placeholder="Indique monto" step="any">
-                <p id="textodolardep"></p>
-            </form>         
-        </section>  
+      
             
     </main>
     </div>

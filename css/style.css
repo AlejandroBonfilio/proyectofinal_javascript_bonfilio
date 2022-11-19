@@ -56,10 +56,20 @@ h1 {
 .formulario {
   width: 350px;
   text-align: center;
+  padding: 20px;
+  margin: 10px;
+  border: 2px solid white;
+
+  background-color: rgba(0, 0, 0, 0.47);
+}
+
+.formulariosesion {
+  width: 350px;
+  text-align: center;
   padding: 30px;
   margin: 20px;
   border: 2px solid white;
-  align-self: center;
+  
   background-color: black;
 }
 
@@ -109,13 +119,10 @@ img {
 }
 
 .formulario-completo {
-  height: 70vh;
+  height: 40vh;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  /* background-image: url("../imagenes/carrusel4.jpg"); */
-  background-repeat: no-repeat;
-  background-size: cover;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .nombre {
@@ -129,6 +136,8 @@ img {
 }
 
 
-
-
+.main{
+  display: flex;
+  flex-flow: row wrap;
+}
 

@@ -3,17 +3,18 @@
  
 
 
-
+//compra
 botoncomprarusd.onclick = (e) => {
     e.preventDefault();
 
     let inputComprausd = document.getElementById("comprarusd");
-    let importeCompra = parseInt(inputComprausd.value)
+    let importeCompra = parseFloat(inputComprausd.value)
     let compra = parseInt(300);
-    let comprardolar = parseInt(importeCompra * compra)
+    let comprardolar = parseFloat(importeCompra * compra)
     
     let resultadoCompra = document.getElementById("resultadodecomprausd");
-     
+
+if (cuentas.length != 0){     
     if(comprardolar > cuentas[indiceCuenta].saldopesosarg ){
         resultadoCompra.innerHTML="Lo sentimos pero no tiene suficiente dinero"
     }
@@ -29,18 +30,25 @@ botoncomprarusd.onclick = (e) => {
     
 
 }
+else{
+    
+    resultadoCompra.innerHTML = "Debe crear una cuenta primero"
+}
 
+}
 
+//venta
 botonvenderusd.onclick = (e) => {
     e.preventDefault();
 
     let inputVentausd = document.getElementById("venderusd");
-    let importeVenta = parseInt(inputVentausd.value)
+    let importeVenta = parseFloat(inputVentausd.value)
     let venta = parseInt(280);
-    let venderdolar = parseInt(importeVenta * venta)
+    let venderdolar = parseFloat(importeVenta * venta)
     
     let resultadoVenta = document.getElementById("resultadodeventausd");
-     
+
+if (cuentas.length != 0){     
     if(importeVenta > cuentas[indiceCuenta].saldodolares ){
         resultadoVenta.innerHTML="Lo sentimos pero no tiene suficiente dinero"
     }
@@ -54,5 +62,12 @@ botonvenderusd.onclick = (e) => {
         resultadoVenta.innerHTML="El valor ingresado no es correcto"
     }
     
+
+}
+
+else{
+    
+    resultadoVenta.innerHTML = "Debe crear una cuenta primero"
+}
 
 }

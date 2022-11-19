@@ -10,16 +10,17 @@ botonsimularprestamo.onclick = (e) => {
     let prestamo = montoPrestamo.value 
 
     let resultadodePrestamo = document.getElementById("resultadoprestamo");
-    let errorresultadodePrestamo = document.getElementById("errorprestamo");
+    
 
     function calculoPrestamo (CFTMens,meses,CFTEAV){
-        let cuota = (((CFTMens * prestamo) / 100) + (prestamo / meses))
+        let cuota = (((CFTMens * prestamo) / 100) + (prestamo / meses)).toFixed(3);
         let total = cuota * meses
         resultadodePrestamo.innerHTML = "Vas a pagar por cuota: $" + cuota + " en un total de " + plazo + " cuotas, el total a pagar es de $" + total + " con un CFTEAV de "+ CFTEAV +"%"
     }
 
+if (cuentas.length != 0){    
     if(prestamo > 2000000){
-        errorresultadodePrestamo.innerHTML = "No se permite un valor mayor a $2.000.00"
+        resultadodePrestamo.innerHTML = "No se permite un valor mayor a $2.000.00"
         
     }
     else if(prestamo<2000000 && prestamo>0){
@@ -40,11 +41,20 @@ botonsimularprestamo.onclick = (e) => {
             
         }
         else{
-            errorresultadodePrestamo.innerHTML ="El valor ingresado es incorrecto"
+            resultadodePrestamo.innerHTML ="El valor ingresado es incorrecto"
         }
 
     }
     else{
-        errorresultadodePrestamo.innerHTML ="El valor ingresado es incorrecto"
+        resultadodePrestamo.innerHTML ="El valor ingresado es incorrecto"
     }
-};
+
+
+}
+
+else{
+    
+    resultadodePrestamo.innerHTML = "Debe crear una cuenta primero"
+}
+
+}

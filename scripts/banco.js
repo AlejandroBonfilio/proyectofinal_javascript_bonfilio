@@ -6,16 +6,11 @@ const cuentas = [];
 //variables
 let indiceCuenta;
 
-
-//Menu 
-    //document.getElementById("bienvenida")
-    //let bienvenida.innerHTML = "Bienvenido a nuestro Home Banking" + nombre
-    
     //crear cuenta
     let nombre1 = document.getElementById("name");
     let mail1 = document.getElementById("email");
     let botonCrearCuenta = document.getElementById("enviar");
-    
+    let sesioniniciada = document.getElementById("iniciodesesion");
     
     botonCrearCuenta.onclick = (e) => {
     e.preventDefault();
@@ -24,38 +19,102 @@ let indiceCuenta;
     let saldopesosarg = parseInt(0);
     let saldodolares = parseInt(0);
     
-    cuentas.push( new CuentaBancaria(nombre, mail, saldopesosarg, saldodolares));
-    indiceCuenta = cuentas.length - 1;    
-    }
+
+        let cuentaexistente = cuentas.some((elemento) => {
+            return elemento.mail == mail;
+        })
+
+        if(cuentaexistente==true){
+            sesioniniciada.innerHTML = "Mail existente"
+        }
+        else if(cuentaexistente==false){
+            cuentas.push( new CuentaBancaria(nombre, mail, saldopesosarg, saldodolares));
+            indiceCuenta = cuentas.length - 1; 
+            sesioniniciada.innerHTML = "Sesion iniciada"
+        }
+        else{
+            sesioniniciada.innerHTML = "Error"
+        }
+
+}
     
     //ver de saldo
     saldo.onclick = () => {
-        //alert("Este es tu saldo en Pesos Arg $" + cuentas[indiceCuenta].saldopesosarg + " y en Dolares u$d " +cuentas[indiceCuenta].saldodolares )
+        
+        
         let sectionVerSaldo = document.getElementById("versaldo")
+    
+        if (cuentas.length != 0){
+        
         sectionVerSaldo.innerHTML = "$ " + cuentas[indiceCuenta].saldopesosarg 
         let sectionVerSaldoDolares = document.getElementById("versaldodolares")
         sectionVerSaldoDolares.innerHTML = "U$s " + cuentas[indiceCuenta].saldodolares 
     }
+
+    
+        else{
+
+            sectionVerSaldo.innerHTML = "Debe crear una cuenta primero"
+    }
+}
+
     
     //deposito pesos 
     
+ 
     botondeposito.onclick = (e) => {    
         e.preventDefault();
-        let massaldo = parseInt(document.getElementById("depositarpesos").value);
-        cuentas[indiceCuenta].saldopesosarg = cuentas[indiceCuenta].saldopesosarg + massaldo
-    
+        
+        let textoDepositoPesos = document.getElementById("textopesosdep");
+        
+        if (cuentas.length != 0){        
+            let massaldo = parseFloat(document.getElementById("depositarpesos").value);
+            
+            if (isNaN(massaldo)) {
+                return textoDepositoPesos.innerHTML = "Por favor, ingrese un numero válido";
+              }
+            else{
+            
+            cuentas[indiceCuenta].saldopesosarg = cuentas[indiceCuenta].saldopesosarg + massaldo
+            textoDepositoPesos.innerHTML = "Depositó $" + massaldo
+        }
+        }
+
+        else{
+
+            textoDepositoPesos.innerHTML = "Debe crear una cuenta primero"
+        }
     }
+
 
     //deposito dolares
 
     botondepositodolares.onclick = (e) => {    
         e.preventDefault();
-        let massaldodolares = parseInt(document.getElementById("depositardolares").value);
-        cuentas[indiceCuenta].saldodolares = cuentas[indiceCuenta].saldodolares + massaldodolares
-    
+        
+        let textoDepositoDolares = document.getElementById("textodolardep");
+        
+        
+        if (cuentas.length != 0){
+            let massaldodolares = parseFloat(document.getElementById("depositardolares").value);
+
+            if (isNaN(massaldodolares)) {
+                return textoDepositoDolares.innerHTML = "Por favor, ingrese un numero válido";
+            }
+            else{
+            
+                cuentas[indiceCuenta].saldodolares = cuentas[indiceCuenta].saldodolares + massaldodolares
+                textoDepositoDolares.innerHTML = "Depositó u$d " + massaldodolares
+            }
+        }
+        else{
+
+            textoDepositoDolares.innerHTML = "Debe crear una cuenta primero"
+        }
     }
     
     //cambiar de cuenta
+     let sesioncambiada = document.getElementById("cambiosesion");
 
     botondebuscarcuenta.onclick = (e) => {
         e.preventDefault();
@@ -64,12 +123,25 @@ let indiceCuenta;
         let nombre = nombrecambiocuenta.value
         let mailcambiocuenta = document.getElementById("maildecuenta");
         let mail = mailcambiocuenta.value
-        
-        let cuenta = cuentas.find
-                    ((elemento) => ((elemento.nombre == nombre) && (elemento.mail == mail)))
+       
+        if(cuentas.length != 0){       
+            let cuenta = cuentas.find
+            ((elemento) => ((elemento.nombre == nombre) && (elemento.mail == mail)))
+            
+            if(cuentas.includes(cuenta)){
+                
                         indiceCuenta = cuentas.indexOf(cuenta);
+                        sesioncambiada.innerHTML = "Sesion Iniciada"
+                    }
+            else{
+                sesioncambiada.innerHTML = "Usuario Inexistente"
+            }
+        } 
         
-    };
+        else{
+            sesioncambiada.innerHTML = "No se encontro una cuenta"
+        }            
+};
         
     
     

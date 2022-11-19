@@ -11,41 +11,44 @@ botonsimularplazofijo.onclick = (e) => {
 
 
     let resultadoPF = document.getElementById("resultadoplazofijo");
-    let erroresultadoPF = document.getElementById("errorplazofijo");
-    
-    
-    if ((diasplazo==30) && (montoplazofijo <= cuentas[indiceCuenta].saldopesosarg) && (montoplazofijo > 0)){
-        intereses = (((5.4*montoplazofijo)/100)*1)
-        
-        resultadoPF.innerHTML = "Cobrarás por intereses $" + intereses + " en un plazo de " + diasplazo + " dias" 
-    
+   
+    //funcion plazo fijo
+
+    function calculoPlazoFijo (TNM, montoplazofijo, diasplazo, meses){
+        let intereses = (((TNM*montoplazofijo)/100)*meses).toFixed(3);
+        resultadoPF.innerHTML  = "Cobrarás por intereses $" + intereses + " en un plazo de " + diasplazo + " dias"
+     
     }
+
+if (cuentas.length != 0){
     
-    else if ((diasplazo==60) && (montoplazofijo <= cuentas[indiceCuenta].saldopesosarg) && (montoplazofijo > 0)){
-        intereses = (((6*montoplazofijo)/100)*2)
+    if((montoplazofijo <= cuentas[indiceCuenta].saldopesosarg) && (montoplazofijo > 0)){
         
-        resultadoPF.innerHTML = "Cobrarás por intereses $" + intereses + " en un plazo de " + diasplazo + " dias" 
-    
-    }
-    else if ((diasplazo==90) && (montoplazofijo <= cuentas[indiceCuenta].saldopesosarg) && (montoplazofijo > 0)){
-        intereses = (((6.5*montoplazofijo)/100)*3)
+        if (diasplazo==30){
+            calculoPlazoFijo(5.4,montoplazofijo,diasplazo,1)
+        }
+        else if (diasplazo==60){
+            calculoPlazoFijo(6,montoplazofijo,diasplazo,2)
+        }
+        else if (diasplazo==90){
+            calculoPlazoFijo(7,montoplazofijo,diasplazo,3)
+        }
+        else if (diasplazo==120){
+            calculoPlazoFijo(8,montoplazofijo,diasplazo,4)
+        }
         
-        resultadoPF.innerHTML = "Cobrarás por intereses $" + intereses + " en un plazo de " + diasplazo + " dias" 
-    
-    }
-    else if ((diasplazo==120) && (montoplazofijo <= cuentas[indiceCuenta].saldopesosarg) && (montoplazofijo > 0)){
-        intereses = (((7*montoplazofijo)/100)*4)
-        
-        resultadoPF.innerHTML = "Cobrarás por intereses $" + intereses + " en un plazo de " + diasplazo + " dias" 
-    
-    }
+        else{
+            resultadoPF.innerHTML = "No ingresó una opción válida"
+        }
+    }   
     
     else{
-        erroresultadoPF.innerHTML = "No ingresó una opción válida"
+        resultadoPF.innerHTML = "No tiene suficiente dinero en la cuenta"
     }
-        
-        
-        
-};
+}
 
+else{
+    resultadoPF.innerHTML = "Debe crear una cuenta primero"
+}
 
+}

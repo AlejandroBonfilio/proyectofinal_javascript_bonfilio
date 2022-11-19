@@ -1,3 +1,5 @@
+//funcion constructora para crear cuentas 
+
 class CuentaBancaria {
     constructor(nombre, mail, saldopesosarg, saldodolares) {
         this.nombre = nombre;

@@ -13,7 +13,7 @@ botonsimularprestamo.onclick = (e) => {
     
 
     function calculoPrestamo (CFTMens,meses,CFTEAV){
-        let cuota = (((CFTMens * prestamo) / 100) + (prestamo / meses)).toFixed(3);
+        let cuota = (((CFTMens * prestamo) / 100) + (prestamo / meses)).toFixed(2);
         let total = cuota * meses
         resultadodePrestamo.innerHTML = "Vas a pagar por cuota: $" + cuota + " en un total de " + plazo + " cuotas, el total a pagar es de $" + total + " con un CFTEAV de "+ CFTEAV +"%"
     }

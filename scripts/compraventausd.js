@@ -23,6 +23,7 @@ if (cuentas.length != 0){
         cuentas[indiceCuenta].saldodolares = cuentas[indiceCuenta].saldodolares + importeCompra;
         cuentas[indiceCuenta].saldopesosarg = cuentas[indiceCuenta].saldopesosarg - comprardolar;
         resultadoCompra.innerHTML="Usted compró: U$D " + importeCompra + " por: $" + comprardolar
+        localStorage.setItem("cuentas", JSON.stringify(cuentas))
     }
     else{
         resultadoCompra.innerHTML="El valor ingresado no es correcto"
@@ -57,6 +58,7 @@ if (cuentas.length != 0){
         cuentas[indiceCuenta].saldodolares = cuentas[indiceCuenta].saldodolares - importeVenta
         cuentas[indiceCuenta].saldopesosarg = cuentas[indiceCuenta].saldopesosarg + venderdolar
         resultadoVenta.innerHTML="Usted vendió: U$D " + importeVenta + " por: $" + venderdolar
+        localStorage.setItem("cuentas", JSON.stringify(cuentas))
     }
     else{
         resultadoVenta.innerHTML="El valor ingresado no es correcto"

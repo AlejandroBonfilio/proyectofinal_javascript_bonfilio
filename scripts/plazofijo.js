@@ -15,7 +15,7 @@ botonsimularplazofijo.onclick = (e) => {
     //funcion plazo fijo
 
     function calculoPlazoFijo (TNM, montoplazofijo, diasplazo, meses){
-        let intereses = (((TNM*montoplazofijo)/100)*meses).toFixed(3);
+        let intereses = (((TNM*montoplazofijo)/100)*meses).toFixed(2);
         resultadoPF.innerHTML  = "Cobrarás por intereses $" + intereses + " en un plazo de " + diasplazo + " dias"
      
     }

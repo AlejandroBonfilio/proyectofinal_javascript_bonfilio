@@ -1,6 +1,10 @@
 
-//array de cuentas
-const cuentas = [];
+
+let cuentas = JSON.parse(localStorage.getItem("cuentas"));
+
+if(cuentas==null){
+    cuentas=[];
+}
 
 
 //variables
@@ -29,6 +33,7 @@ let indiceCuenta;
         }
         else if(cuentaexistente==false){
             cuentas.push( new CuentaBancaria(nombre, mail, saldopesosarg, saldodolares));
+            localStorage.setItem("cuentas", JSON.stringify(cuentas));
             indiceCuenta = cuentas.length - 1; 
             sesioniniciada.innerHTML = "Sesion iniciada"
         }
@@ -77,6 +82,7 @@ let indiceCuenta;
             
             cuentas[indiceCuenta].saldopesosarg = cuentas[indiceCuenta].saldopesosarg + massaldo
             textoDepositoPesos.innerHTML = "Depositó $" + massaldo
+            localStorage.setItem("cuentas", JSON.stringify(cuentas))
         }
         }
 
@@ -105,6 +111,7 @@ let indiceCuenta;
             
                 cuentas[indiceCuenta].saldodolares = cuentas[indiceCuenta].saldodolares + massaldodolares
                 textoDepositoDolares.innerHTML = "Depositó u$d " + massaldodolares
+                localStorage.setItem("cuentas", JSON.stringify(cuentas))
             }
         }
         else{

@@ -37,6 +37,7 @@ let indiceCuenta;
             indiceCuenta = cuentas.length - 1; 
             sesioniniciada.innerHTML = "Sesion iniciada"
         }
+        
         else{
             sesioniniciada.innerHTML = "Error"
         }
@@ -150,5 +151,3 @@ let indiceCuenta;
         }            
 };
         
-    
-    

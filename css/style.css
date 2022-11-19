@@ -119,10 +119,12 @@ img {
 }
 
 .formulario-completo {
-  height: 40vh;
+  height: auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+
+  
 }
 
 .nombre {
@@ -139,5 +141,14 @@ img {
 .main{
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 
+@media(max-width:700px) {
+  .bancocompleto{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+}

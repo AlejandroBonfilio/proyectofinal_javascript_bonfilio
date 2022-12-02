@@ -36,12 +36,12 @@
         <form class="formulariosesion" method="post">
             <div class="datos">    
                 <h3>Registrarse</h3>
-                <div class="nombre">
-                    <label for="name">Nombre:</label>
+                <div class="nombre ">
+                    <label for="name" class="fs-5">Nombre:</label>
                     <input id="name" placeholder="Nombre" name="name" size="25" required>
                 </div>    
                 <div class="email">
-                    <label for="email">EMail:</label>
+                    <label for="email" class="fs-5">EMail:</label>
                     <input type="email" id="email" placeholder="Email" name="email" size="25" required>
                 </div>
             </div>    
@@ -56,11 +56,11 @@
             <h3>Iniciar sesion</h3>
             <form method="post">
                 <div class="nombre">
-                    <label for="nombredecuenta">Nombre:</label>
+                    <label for="nombredecuenta" class="fs-5">Nombre:</label>
                     <input type="text" id="nombredecuenta" placeholder="Nombre" size="25">
                 </div>  
                 <div class="email">
-                    <label for="maildecuenta">Email:</label>
+                    <label for="maildecuenta" class="fs-5">Email:</label>
                     <input type="email" id="maildecuenta" placeholder="Email" size="25">
                 </div>
                 <input class="formulario__boton" type="submit" name="botondebuscarcuenta" id="botondebuscarcuenta" value="Ingresar">
@@ -92,14 +92,16 @@
         </section> 
         <section class="formulario" id="plazofijo">
             <h3>Simular plazo fijo</h3>
-            <h6>Elegir plazo (en dias)</h6>
-            <p>Plazos disponibles 30-60-90-120</p>
+            <br>
+            <h6 class="fs-5">Elegir plazo (en dias)</h6>
+            <p class="fs-5">Plazos disponibles 30-60-90-120</p>
             <form method="post">
                 
                 <input type="number" id="diasPF" placeholder="Indique Plazo">
-                
-                <h6>Ingresar monto</h6>
+                <br><br>
+                <h6 class="fs-5">Ingresar monto</h6>
                 <input type="number" id="valorplazofijo" placeholder="Indique monto">
+                <br><br>
                 <input class="formulario__boton" type="submit" id="botonsimularplazofijo" value="Simular">
                 <p id="resultadoplazofijo"></p>
                 
@@ -107,16 +109,16 @@
         </section>
         <section class="formulario" id="dolares">
             <h3>Comprar-Vender Dolares</h3>
-            <h4 id="valorcompra">Valor de Compra $300</h4>
+            <h4 id="valorcompra"></h4>
             <form method="post">    
-                <label for="comprarusd">Cuantos U$d quiere comprar?</label>
+                <label for="comprarusd" class="fs-5">Cuantos U$d quiere comprar?</label>
                 <input type="number" id="comprarusd" placeholder="Indique monto">
                 <input class="formulario__boton" type="submit" id="botoncomprarusd" value="Comprar">
                 <p id="resultadodecomprausd"></p>
             </form>
-            <h4 id="valorventa">Valor de Venta $280</h4>
+            <h4 id="valorventa"></h4>
             <form method="post">    
-                <label for="venderusd">Cuantos U$d quiere vender?</label>
+                <label for="venderusd" class="fs-5">Cuantos U$d quiere vender?</label>
                 <input type="number" id="venderusd" placeholder="Indique monto">
                 <input class="formulario__boton" type="submit" id="botonvenderusd" value="Vender">
                 <p id="resultadodeventausd"></p>
@@ -124,11 +126,12 @@
         </section>
         <section class="formulario" id="credito">
             <h3>Simular un Crédito</h3>
-            <h6>Puede pedir hasta $2.000.000 en un plazo maximo de 72 meses</h6>
+            <h6 class="fs-5">Puede pedir hasta $2.000.000 en un plazo maximo de 72 meses</h6>
         
-            <label for="montoprestamo">Monto a solicitar</label>
+            <label for="montoprestamo" class="fs-5">Monto a solicitar</label>
             <input type="number" id="montoprestamo" placeholder="Indique monto"> 
-            <label for="plazoprestamo">Plazos disponibles (en meses) 12-24-36-72</label>
+            <br><br>
+            <label for="plazoprestamo" class="fs-5">Plazos disponibles (en meses) 12-24-36-72</label>
             <input type="number" id="plazoprestamo" placeholder="Indique Plazo"> 
             <input id="botonsimularprestamo" class="formulario__boton" type="submit" value="Simular">
             <p id="resultadoprestamo"></p>

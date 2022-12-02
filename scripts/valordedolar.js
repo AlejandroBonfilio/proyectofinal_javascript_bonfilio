@@ -10,8 +10,8 @@ url="https://www.dolarsi.com/api/api.php?type=valoresprincipales"
     
         
        //texto en compra-venta usd
-        valorCompra.innerHTML = "Precio de compra " + JSON.stringify(dolarValor[1].casa.venta);
-        valorVenta.innerHTML = "Precio de venta " + JSON.stringify(dolarValor[1].casa.compra);
+        valorCompra.innerHTML = "Precio de compra $" + JSON.stringify(dolarValor[1].casa.venta);
+        valorVenta.innerHTML = "Precio de venta $" + JSON.stringify(dolarValor[1].casa.compra);
 
         
     });

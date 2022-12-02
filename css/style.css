@@ -70,13 +70,13 @@ h1 {
   margin: 20px;
   border: 2px solid white;
   
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.432);
 }
 
 .titulo_formulario {
   margin: 20px;
   padding: 20px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.304);
   text-align: center;
   border-radius: 20px;
 }
@@ -92,7 +92,8 @@ body a {
 
 body {
   /* fondo */
-  background: linear-gradient(180deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 49%, rgb(0, 212, 255) 94%);
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,77,1) 35%, rgba(0,212,255,1) 100%);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -104,7 +105,7 @@ img {
 
 .formulario__boton {
   text-decoration: none;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.352);
   color: white;
   border: 1px solid white;
   padding: 10px 15px;
@@ -114,8 +115,8 @@ img {
 }
 .formulario__boton:hover {
   transition-delay: 0.5ms;
-  background-color: white;
-  color: black;
+  background-color: rgba(255, 255, 255, 0.666);
+  color: rgba(0, 0, 0, 0.912);
 }
 
 .formulario-completo {
@@ -151,4 +152,10 @@ img {
   }
 
 
+}
+
+input{
+ 
+  margin: 5px 0px 5px 0px;
+  
 }

@@ -17,10 +17,15 @@ botonsimularplazofijo.onclick = (e) => {
     function calculoPlazoFijo (TNM, montoplazofijo, diasplazo, meses){
         let intereses = (((TNM*montoplazofijo)/100)*meses).toFixed(2);
         resultadoPF.innerHTML  = "Cobrarás por intereses $" + intereses + " en un plazo de " + diasplazo + " dias"
-     
+        Swal.fire({
+            title: 'Su plazo fijo',
+            text: "Cobrarás por intereses $" + intereses + " en un plazo de " + diasplazo + " dias",
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        })
     }
 
-if (cuentas.length != 0){
+if ((cuentas.length != 0) && (inicioSesion==true)){
     
     if((montoplazofijo <= cuentas[indiceCuenta].saldopesosarg) && (montoplazofijo > 0)){
         
@@ -39,16 +44,44 @@ if (cuentas.length != 0){
         
         else{
             resultadoPF.innerHTML = "No ingresó una opción válida"
+            Swal.fire({
+                title: 'Error!',
+                text: 'No ingresó una opción válida',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
         }
     }   
-    
+    else if ((diasplazo=="")||(montoplazofijo=="")){
+        
+            resultadoPF.innerHTML = "No ingresó una opción válida"
+            Swal.fire({
+                title: 'Error!',
+                text: 'No ingresó una opción válida',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        
+    }
     else{
         resultadoPF.innerHTML = "No tiene suficiente dinero en la cuenta"
+        Swal.fire({
+            title: 'Error!',
+            text: 'No tiene suficiente dinero en la cuenta',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        })
     }
 }
 
 else{
     resultadoPF.innerHTML = "Debe crear una cuenta primero"
+    Swal.fire({
+        title: 'Error!',
+        text: 'Debe crear una cuenta primero',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+    })
 }
 
 }

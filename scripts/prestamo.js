@@ -16,9 +16,15 @@ botonsimularprestamo.onclick = (e) => {
         let cuota = (((CFTMens * prestamo) / 100) + (prestamo / meses)).toFixed(2);
         let total = cuota * meses
         resultadodePrestamo.innerHTML = "Vas a pagar por cuota: $" + cuota + " en un total de " + plazo + " cuotas, el total a pagar es de $" + total + " con un CFTEAV de "+ CFTEAV +"%"
+        Swal.fire({
+            title: 'Su prestamo',
+            text: "Vas a pagar por cuota: $" + cuota + " en un total de " + plazo + " cuotas, el total a pagar es de $" + total + " con un CFTEAV de "+ CFTEAV +"%",
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        })
     }
 
-if (cuentas.length != 0){    
+if ((cuentas.length != 0) && (inicioSesion==true)){    
     if(prestamo > 2000000){
         resultadodePrestamo.innerHTML = "No se permite un valor mayor a $2.000.00"
         
@@ -42,11 +48,24 @@ if (cuentas.length != 0){
         }
         else{
             resultadodePrestamo.innerHTML ="El valor ingresado es incorrecto"
+            Swal.fire({
+                title: 'Error!',
+                text: 'El valor ingresado es incorrecto',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+            
         }
 
     }
     else{
         resultadodePrestamo.innerHTML ="El valor ingresado es incorrecto"
+        Swal.fire({
+            title: 'Error!',
+            text: 'El valor ingresado es incorrecto',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        })
     }
 
 
@@ -55,6 +74,12 @@ if (cuentas.length != 0){
 else{
     
     resultadodePrestamo.innerHTML = "Debe crear una cuenta primero"
+    Swal.fire({
+        title: 'Error!',
+        text: 'Debe crear una cuenta primero',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+    })
 }
 
 }

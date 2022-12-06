@@ -24,11 +24,16 @@ let inicioSesion = false;
     let saldopesosarg = parseInt(0);
     let saldodolares = parseInt(0);
     
+        
+        let formatoDeMail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
         let cuentaexistente = cuentas.some((elemento) => {
             return elemento.mail == mail;
         })
         
+        
+        if ((nombre!="")||(mail!="")){
+        if((formatoDeMail.test(mail))==true){
         //si intentas iniciar sesion con un mail existente
         if(cuentaexistente==true){
             sesioniniciada.innerHTML = "Mail existente"
@@ -40,16 +45,6 @@ let inicioSesion = false;
             })
         }
         
-        //si intentas inciar sesion con campos vacios
-        else if ((nombre=="")||(mail=="")){
-            sesioniniciada.innerHTML = "Mail existente"
-            Swal.fire({
-                title: 'Valor Invalido',
-                text: 'Debe ingresar un valor',
-                icon: 'warning',
-                confirmButtonText: 'Aceptar'
-            })
-        }
         
         //registro exitoso
         else if(cuentaexistente==false){
@@ -70,9 +65,28 @@ let inicioSesion = false;
         else{
             sesioniniciada.innerHTML = "Error"
         }
-
+    }
+    else{
+        sesioniniciada.innerHTML = "No es un formato de mail"
+        Swal.fire({
+            title: 'Mail Invalido',
+            text: 'No es un formato de mail',
+            icon: 'warning',
+            confirmButtonText: 'Aceptar'
+        })
+    }
 }
-    
+    else{
+        sesioniniciada.innerHTML = "Debe ingresar un valor"
+            Swal.fire({
+                title: 'Valor Invalido',
+                text: 'Debe ingresar un valor',
+                icon: 'warning',
+                confirmButtonText: 'Aceptar'
+            })
+    }
+}
+  
     //ver saldo
     saldo.onclick = () => {
         

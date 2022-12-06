@@ -79,7 +79,7 @@ let inicioSesion = false;
     else{
         sesioniniciada.innerHTML = "Debe ingresar un valor"
             Swal.fire({
-                title: 'Valor Invalido',
+                title: 'Campos vacios',
                 text: 'Debe ingresar un valor',
                 icon: 'warning',
                 confirmButtonText: 'Aceptar'
